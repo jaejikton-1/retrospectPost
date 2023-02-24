@@ -30,7 +30,7 @@ const Home = ({ userObj }: any) => {
 
   const history = useNavigate();
   const toWrite = () => {
-    history("/write");
+    history("/question/1");
   };
 
   const onClickOpenModal = () => {
