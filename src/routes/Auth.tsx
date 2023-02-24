@@ -6,30 +6,31 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { firebaseInstance, authService } from "../fbase";
 const Auth = () => {
-  const history = useNavigate();
+  const navi = useNavigate();
 
   const onSocialClick = async (event: any) => {
     const {
-      target: { name },
+      target: { alt },
     } = event;
     let provider: any;
-    if (name === "google") {
+    if (alt === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
-    } else if (name === "github") {
+    } else if (alt === "github") {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
 
     const data = await authService.signInWithPopup(provider);
 
-    history("/home");
+    navi("/home");
     //console.log(data);
   };
 
   return (
     <Container>
       <ButtonStyle>
-        <img src={Google} onClick={onSocialClick} />
-        <img src={Github} onClick={onSocialClick} />
+        <img src={Google} onClick={onSocialClick} alt="google"/>
+        <img src={Github} onClick={onSocialClick} alt="github"/>
+
       </ButtonStyle>
     </Container>
   );
