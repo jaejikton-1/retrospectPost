@@ -1,7 +1,33 @@
 import styled from "styled-components";
 import answerImg from "../assets/AnswerBack.svg";
 
+import { dbService } from "../fbase";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+
 const AnswerSentence = () => {
+
+  useEffect(() => {
+    sampleDB();
+
+  }, []);
+
+  const {id} = useParams(); // url index
+
+
+  const sampleDB = async () => {
+    //const tableId = `${id}_${windowCount}`;
+    await dbService.collection("question").add({
+        questionIdx:id,
+        questionText: "nweet",
+        timestamp: new Date(),
+        //creatorId: uid,
+        //attachmentUrl,
+        //hotelOwnerId: id,
+        //ip : ip,
+    });
+  };
+
   return (
     <AnswerSentenceWrapper>
       <AnswerImg src={answerImg}></AnswerImg>
