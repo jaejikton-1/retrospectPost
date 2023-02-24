@@ -15,8 +15,21 @@ export const MediaDiv = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'KyoboHand';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
     ${reset}
     body {
+        box-sizing: border-box;
         margin: 0px;
+        font-family: 'KyoboHand';
     }
-`
+
+    * {
+        box-sizing: border-box;
+        font-family: 'KyoboHand';
+    }
+`;
