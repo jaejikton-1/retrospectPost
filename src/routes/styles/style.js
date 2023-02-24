@@ -6,11 +6,7 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 10px;
 `
-export const HotelImg = styled.img`
-    width: 180px;
-    height: 285px;
-    margin-top: 36px;
-`
+
 export const TitleDiv = styled.div`
     width: 176px;
     height: 17px;

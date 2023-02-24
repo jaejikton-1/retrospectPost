@@ -7,7 +7,7 @@ import LoginBar from '../assets/LoginBar.svg';
 import SignupBar from '../assets/SignupBar.svg';
 import Title from '../assets/Welcome.svg';
 import { useHistory } from 'react-router-dom';
-import { Container, HotelImg, TitleDiv, ButtonLayout } from './styles/style';
+import { Container, TitleDiv, ButtonLayout } from './styles/style';
 import { useEffect, useState } from 'react';
 import { RedButton } from "./styles/buttonstyle";
 import Modal from '../components/Modal/Modal';
@@ -48,7 +48,6 @@ const Home = ({ userObj }) => {
         <Container>
           <img src={Title} />
           <TitleDiv>진저호텔에서 보내는 25일간의 휴일</TitleDiv>
-          <HotelImg src={Hotel} />
           <RedButton onClick={toWrite}>편지 보내기</RedButton>
           <button onClick={onClickOpenModal}>모달창 테스트</button>
           {isModalOpen && <Modal closeModal={onClickCloseModal}>
