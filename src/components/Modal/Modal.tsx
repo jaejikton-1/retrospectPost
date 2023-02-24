@@ -1,7 +1,8 @@
 import React from "react";
-import { ModalLayout, Background, ModalCloseButton } from "./styles";
+import { Background, ModalCloseButton } from "./styles";
 import { useRef } from "react";
 import styled from "styled-components";
+import answerImg from "../../assets/AnswerBack.svg";
 
 const TimeTitle = () => {
   const todayTime = () => {
@@ -33,19 +34,41 @@ const Modal = ({ closeModal, children }: any) => {
         }
       }}
     >
-      <ModalLayout>
-        <TimeTitleLayout>
-          <TimeTitle />
-        </TimeTitleLayout>
-        {/* <ModalCloseButton onClick={() => closeModal(false)} /> */}
-        {children}
-        {/* <ModalButton onClick={() => closeModal(true)}>{buttonText}</ModalButton> */}{" "}
-      </ModalLayout>
+    <AnswerSentenceWrapper>
+      <AnswerImg src={answerImg}></AnswerImg>
+      <SentenceInput placeholder="답변을 입력해주세요"></SentenceInput>
+    </AnswerSentenceWrapper>
     </Background>
   );
 };
 
 export default Modal;
+const AnswerSentenceWrapper = styled.div`
+  position: relative;
+  margin-top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+`;
+
+const AnswerImg = styled.img`
+  width: 100%;
+`;
+
+const SentenceInput = styled.textarea`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px;
+  background: none;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const TimeTitleLayout = styled.div`
   position: absolute;
