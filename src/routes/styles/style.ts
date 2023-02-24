@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+`;
 
 export const TitleDiv = styled.div`
   width: 176px;
@@ -17,13 +17,13 @@ export const TitleDiv = styled.div`
   font-size: 12px;
   line-height: 17px;
 
-  color: #000000;
+  color: #222;
 `;
 export const InputStyle = styled.input`
   width: 305px;
   height: 45px;
   background-color: #fcf4e9;
-  color: #000000;
+  color: #222;
 
   border-color: transparent;
   border-bottom-style: solid;
@@ -53,7 +53,7 @@ export const WriteTitleDiv = styled.div`
   line-height: 29px;
   text-align: center;
 
-  color: #000000;
+  color: #222;
 `;
 export const LetterStyle = styled.img`
     width: 70px;
