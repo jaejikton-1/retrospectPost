@@ -36,6 +36,10 @@ const RankImg = styled.img`
 `;
 
 const RankWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   &.rank2 {
     margin-top: 60px;
   }

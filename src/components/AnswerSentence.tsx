@@ -13,10 +13,13 @@ const AnswerSentence = () => {
 const AnswerSentenceWrapper = styled.div`
   position: relative;
   margin-top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
 `;
 
 const AnswerImg = styled.img`
-  width: 290px;
+  width: 100%;
 `;
 
 const SentenceInput = styled.textarea`
