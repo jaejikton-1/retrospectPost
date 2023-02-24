@@ -8,10 +8,11 @@ type UserType = {
     id: number,
     name: string,
     image : string,
-  }
+}
+
 const Post = ({ userObj }: any) => {
       
-    const dataA: UserType[] = [
+    const dataA: Array<UserType> = [
     {
       id: 1,
       name: "Island",
@@ -70,31 +71,27 @@ const Post = ({ userObj }: any) => {
 
   return (
     <>
-      <Tiles data={dataA} />
+      <Tiles {...dataA} />
     </>
   );
 };
 
-type UserType = {
-    id: number,
-    name: string,
-    image : string,
-  }
 
-const Tiles = ( data : UserType[]) => {
-    
+const Tiles = ( data : Array<UserType>) => {
+  const dataA: Array<UserType> = Object.values(data);
+  
   return (
     <>
       <TilesDiv className="tiles">
-        {data.map((dataO) => {
-          return <Tile data={dataO} key={dataO.id} />;
+        {dataA.map((dataO) => {
+          return <Tile {...dataO}/>;
         })}
       </TilesDiv>
     </>
   );
 };
 
-const Tile = ({ data }: any) => {
+const Tile = ( data : UserType) => {
   let tileStyle = {};
   let headerStyle = {};
   let zoom = {};

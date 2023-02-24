@@ -29,6 +29,9 @@ const Home = ({ userObj }: any) => {
   }, []);
 
   const history = useNavigate();
+  const toPost = () => {
+    history("/post");
+  };
   const toWrite = () => {
     history("/write");
   };
@@ -46,6 +49,7 @@ const Home = ({ userObj }: any) => {
         <TitleDiv>회고</TitleDiv>
         <PostImg src={Post} />
         <RedButton onClick={toWrite}>회고 보내기</RedButton>
+        <RedButton onClick={toPost}>회고 보기</RedButton>
         <button onClick={onClickOpenModal}>모달창 테스트</button>
         {isModalOpen && (
           <Modal closeModal={onClickCloseModal}>
