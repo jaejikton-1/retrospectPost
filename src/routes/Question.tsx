@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { questionList } from "src/components/test";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import AnswerScore from "src/components/AnswerScore";
 
 export type IProps = {
   question: string;
@@ -41,8 +42,10 @@ const Question = () => {
             <AnswerRank></AnswerRank>
           ) : curQuiz?.answer_type === "sentence" ? (
             <AnswerSentence></AnswerSentence>
-          ) : (
+          ) : curQuiz?.answer_type === "word" ? (
             <AnswerSelect></AnswerSelect>
+          ) : (
+            <AnswerScore></AnswerScore>
           )}
         </div>
         <Link to={`/question/${idx}`}>
