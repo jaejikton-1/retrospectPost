@@ -1,8 +1,13 @@
-import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-//import {dbService, storageService} from "fbase";
 import styled from "styled-components";
 import React from "react";
+import Modal from "src/components/Modal/Modal";
+import Nweet from "src/components/Nweet";
+
+import {useEffect, useRef, useState } from "react";
+import {dbService, storageService} from "../fbase";
+
+
 type UserType = {
   id: number;
   name: string;
@@ -190,6 +195,18 @@ const Post = ({ userObj }: any) => {
     setModalOpen((prev) => !prev);
   };
 
+  const [nweets, setNweets] = useState([]);
+
+  useEffect(() => {
+    dbService.collection("nweets").onSnapshot((snapshot) => {
+      const newArray: any = snapshot.docs.map((document) => ({
+        id: document.id,
+        ...document.data(),
+      }));
+      setNweets(newArray);
+    });
+  }, []);
+
   return (
     <>
       <ImagesDiv>
@@ -201,7 +218,23 @@ const Post = ({ userObj }: any) => {
       </ImagesDiv>
 
       <button onClick={onClickOpenModal}>모달창 테스트</button>
-      
+        {isModalOpen && (
+          <Modal closeModal={onClickCloseModal}>
+            <h1>도착한 회고</h1>
+            <CardLayout>
+              {" "}
+              {nweets.map((nweet: any) => (
+                <MessageCard>
+                  <Nweet
+                    key={nweet.id}
+                    nweetObj={nweet}
+                    isOwner={nweet.creatorId === userObj.uid}
+                  />
+                </MessageCard>
+              ))}{" "}
+            </CardLayout>
+          </Modal>
+        )}{" "}
     </>
   );
 };
@@ -213,4 +246,35 @@ const Image = styled.img`
 `;
 const ImagesDiv = styled.div`
   margin-top: 20%;
+`;
+
+
+const CardLayout = styled.div`
+  position: relative;
+  overflow: scroll;
+  align-items: center;
+
+  width: 272px;
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 35px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+`;
+
+const MessageCard = styled.div`
+  position: relative;
+
+  height: fit-content;
+  padding: 10px;
+
+  width: 217px;
+
+  box-sizing: border-box;
+
+  border: 2px dashed #a4d6cb;
+  border-radius: 3px;
+  box-shadow: 0 0 0 8px white, 0 0 0 10px #a4d6cb;
 `;
