@@ -40,7 +40,7 @@ function App() {
             <Route path="/write" element={<Write userObj={userObj} />} />
             <Route path="/writesuccess" element={<WriteSuccess />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/question" element={<Question />}></Route>
+            <Route path="/question/:id" element={<Question />}></Route>
             ) : (
             <Route path="/" element={<Start />} />
             <Route path="/login" element={<Auth />} />
