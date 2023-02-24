@@ -1,6 +1,6 @@
 {
-  "homepage": "https://advent-calendar-by-likelion.github.io/AdventCalendar",
-  "name": "adventcalendar",
+  "homepage": "https://advent-calendar-by-likelion.github.io/retrospectPost",
+  "name": "retrospectPost",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

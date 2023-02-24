@@ -1,8 +1,5 @@
 import { authService, firebaseInstance } from "fbase";
 import { useState } from "react";
-import Title from '../assets/Welcome.svg';
-import DisLoginBar from '../assets/DisLoginBar.svg';
-import LoginBar from '../assets/LoginBar.svg';
 import styled from "styled-components";
 import { Container, InputStyle, TitleDiv } from "../routes/styles/style";
 import { RedButton } from "../routes/styles/buttonstyle";
