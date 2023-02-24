@@ -10,6 +10,7 @@ import { questionList } from "src/components/test";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import AnswerScore from "src/components/AnswerScore";
+import { dbService } from "src/fbase";
 
 export type IProps = {
   question: string;
@@ -21,15 +22,37 @@ const Question = () => {
   const [curQuiz, setQuiz] = useState<IProps>();
   const [idx, setIdx] = useState(0);
   useEffect(() => {
+    getQuizByDB()
     const num = parseInt(id);
     if (questionList) {
       setQuiz(questionList[num - 1]); //렌더링 시 질문 설정 (현재 주소 파라미터에서 질문 번호 가져온다.
       setIdx(num + 1);
     }
-  });
+  }, []);
 
   const setNext = (idx: number) => {
     setIdx(idx + 1);
+  };
+
+
+
+  const getQuizByDB = async () => {
+    //const tableId = `${id}_${windowCount}`;
+    dbService.collection("questionList").onSnapshot((snapshot) => {
+      const questionList1 = snapshot.docs.map((document) => ({
+        question: document.data().question,
+        answer_type: document.data().answer_type,
+      }))
+      console.log(questionList1);
+      /*
+        0: {question: '이번 달 가장 맘에 드는 소비템 TOP 3', answer_type: 'rank'}
+        1: {question: '내 최애 맛집들을 소개해주세요', answer_type: 'word'}
+        2: {question: '내 삶의 이유는 무엇인가요?', answer_type: 'sentence'}
+        3: {question: '수지님의 2월은 어땠나요?', answer_type: 'score'}
+      */
+      //setQuiz(questionList1);
+
+    })
   };
 
   return (
