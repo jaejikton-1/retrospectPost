@@ -12,6 +12,7 @@ import Signup from "../routes/Signup";
 import Start from "../routes/Start";
 import Question from "../routes/Question";
 import Post from "src/routes/Post";
+import DevTool from "src/routes/DevTool";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [init, setInit] = useState(false);
@@ -43,6 +44,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/question/:id" element={<Question />}></Route>
             <Route path="/post" element={<Post />}></Route>
+            <Route path="/devtool" element={<DevTool userObj={userObj}/>}></Route>
             ) : (
             <Route path="/" element={<Start />} />
             <Route path="/login" element={<Auth />} />
