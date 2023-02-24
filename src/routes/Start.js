@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Post from '../assets/Hotel.svg';
+import PostByStart from '../assets/PostByStart.svg';
 import {useHistory} from 'react-router-dom';
 import {Container, TitleDiv} from './styles/style';
 import Auth from './Auth';
@@ -17,7 +17,7 @@ const Start = () => {
                 <TitleDiv>나의 회고록</TitleDiv>
                 <TitleDiv>HeyGo</TitleDiv>
                 <TitleDiv>고양이 우체통</TitleDiv>
-                <HotelImg src={Post}/>
+                <HotelImg src={PostByStart}/>
                 <Auth/>
             </Container>
         </>

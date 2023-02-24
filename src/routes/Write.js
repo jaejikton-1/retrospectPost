@@ -82,7 +82,8 @@ const Write = ({userObj}) => {
     return (
         <>
             <Container>
-                <LetterStyle src={Letter}/>
+                <LetterDiv>📩</LetterDiv>
+                <br/>
                 <WriteTitleDiv>
                     회고록
                     <br/>
@@ -177,4 +178,8 @@ const Input = styled.input `
 
 const FileInput = styled.input `
     margin-top: 24px;
+`
+
+const LetterDiv = styled.div`
+    font-size: 50px;
 `

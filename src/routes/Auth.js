@@ -3,8 +3,10 @@ import Google from '../assets/Google.svg';
 import Github from '../assets/Github.svg';
 import {Container} from './styles/style';
 import styled from 'styled-components';
-
+import { useHistory } from "react-router-dom";
 const Auth = () => {
+    const history = useHistory();
+
     const onSocialClick = async (event) => {
         const {
             target: {
@@ -19,7 +21,9 @@ const Auth = () => {
         }
 
         const data = await authService.signInWithPopup(provider);
-        console.log(data);
+
+        history.push("/home");
+        //console.log(data);
     }
 
     return (

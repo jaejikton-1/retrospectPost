@@ -7,6 +7,9 @@ import {useEffect, useState} from 'react';
 import {RedButton} from "./styles/buttonstyle";
 import Modal from '../components/Modal/Modal';
 import {CardLayout, MessageCard} from "../components/Modal/styles";
+import styled from "styled-components";
+
+import Post from '../assets/Post.svg';
 
 const Home = ({userObj}) => {
     const [nweet, setNweet] = useState("");
@@ -41,12 +44,13 @@ const Home = ({userObj}) => {
     return (
         <>
             <Container>
-                <TitleDiv>진저호텔에서 보내는 25일간의 휴일</TitleDiv>
-                <RedButton onClick={toWrite}>편지 보내기</RedButton>
+                <TitleDiv>회고</TitleDiv>
+                <PostImg src={Post} />
+                <RedButton onClick={toWrite}>회고 보내기</RedButton>
                 <button onClick={onClickOpenModal}>모달창 테스트</button>
                 {
                 isModalOpen && <Modal closeModal={onClickCloseModal}>
-                    <h1>도착한 편지</h1>
+                    <h1>도착한 회고</h1>
                     <CardLayout> {
                         nweets.map((nweet) => (
                             <MessageCard>
@@ -76,3 +80,10 @@ const Home = ({userObj}) => {
 }
 
 export default Home;
+
+
+const PostImg = styled.img`
+    width: 180px;
+    height: 285px;
+    margin-top: 36px;
+`
