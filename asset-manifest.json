@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/retrospectPost/static/js/main.ea59dd3b.chunk.js",
-    "main.js.map": "/retrospectPost/static/js/main.ea59dd3b.chunk.js.map",
+    "main.js": "/retrospectPost/static/js/main.2674e865.chunk.js",
+    "main.js.map": "/retrospectPost/static/js/main.2674e865.chunk.js.map",
     "runtime-main.js": "/retrospectPost/static/js/runtime-main.29d7fd84.js",
     "runtime-main.js.map": "/retrospectPost/static/js/runtime-main.29d7fd84.js.map",
-    "static/js/2.02df5cab.chunk.js": "/retrospectPost/static/js/2.02df5cab.chunk.js",
-    "static/js/2.02df5cab.chunk.js.map": "/retrospectPost/static/js/2.02df5cab.chunk.js.map",
+    "static/js/2.872f0c99.chunk.js": "/retrospectPost/static/js/2.872f0c99.chunk.js",
+    "static/js/2.872f0c99.chunk.js.map": "/retrospectPost/static/js/2.872f0c99.chunk.js.map",
     "index.html": "/retrospectPost/index.html",
-    "static/js/2.02df5cab.chunk.js.LICENSE.txt": "/retrospectPost/static/js/2.02df5cab.chunk.js.LICENSE.txt",
+    "static/js/2.872f0c99.chunk.js.LICENSE.txt": "/retrospectPost/static/js/2.872f0c99.chunk.js.LICENSE.txt",
     "static/media/AnswerBack.1cb44df9.svg": "/retrospectPost/static/media/AnswerBack.1cb44df9.svg",
     "static/media/Background.429d4e5f.svg": "/retrospectPost/static/media/Background.429d4e5f.svg",
     "static/media/Github.426ae318.svg": "/retrospectPost/static/media/Github.426ae318.svg",
@@ -18,7 +18,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.29d7fd84.js",
-    "static/js/2.02df5cab.chunk.js",
-    "static/js/main.ea59dd3b.chunk.js"
+    "static/js/2.872f0c99.chunk.js",
+    "static/js/main.2674e865.chunk.js"
   ]
 }
