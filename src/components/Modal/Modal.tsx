@@ -30,20 +30,20 @@ const Modal = ({ closeModal, children }: any) => {
       //   ref={outside}
       onClick={(e) => {
         if (e.target == outside.current) {
-          closeModal(false);
+          closeModal(false); // todo: not work
         }
       }}
     >
-    <AnswerSentenceWrapper>
-      <AnswerImg src={answerImg}></AnswerImg>
+    <ModalWrapper>
+      <ModalImg src={answerImg}></ModalImg>
       <SentenceInput placeholder="답변을 입력해주세요"></SentenceInput>
-    </AnswerSentenceWrapper>
+    </ModalWrapper>
     </Background>
   );
 };
 
 export default Modal;
-const AnswerSentenceWrapper = styled.div`
+const ModalWrapper = styled.div`
   position: relative;
   margin-top: 70px;
   left: 50%;
@@ -51,7 +51,7 @@ const AnswerSentenceWrapper = styled.div`
   width: 290px;
 `;
 
-const AnswerImg = styled.img`
+const ModalImg = styled.img`
   width: 100%;
 `;
 
