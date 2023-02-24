@@ -4,6 +4,7 @@ import letter from "../assets/Letter.svg";
 import Button from "src/components/Button";
 import AnswerSelect from "src/components/AnswerSelect";
 import AnswerRank from "src/components/AnswerRank";
+import AnswerSentence from "src/components/AnswerSentence";
 
 const Question = () => {
   return (
@@ -12,8 +13,9 @@ const Question = () => {
         <div>
           <LetterImg src={letter}></LetterImg>
           <QuestionTitle>질문 내용을 입력해주세요.</QuestionTitle>
-          {/* <AnswerSelect></AnswerSelect> */}
-          {/* <AnswerRank></AnswerRank> */}
+          {/* <AnswerSelect></AnswerSelect>
+          <AnswerRank></AnswerRank> */}
+          <AnswerSentence></AnswerSentence>
         </div>
         <Button label={"다음"}></Button>
       </BackgroundImg>
