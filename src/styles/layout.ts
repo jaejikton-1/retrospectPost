@@ -15,8 +15,19 @@ export const MediaDiv = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'KyoboHandwriting2021sjy';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
     ${reset}
     body {
         margin: 0px;
+        font-family: 'KyoboHandwriting2021sjy';
     }
-`
+
+    * {
+        font-family: 'KyoboHandwriting2021sjy';
+    }
+`;
