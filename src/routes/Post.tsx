@@ -160,68 +160,33 @@ const Post = ({ userObj }: any) => {
 
   return (
     <>
-      <Tiles {...dataA} />
-    </>
-  );
-};
-
-
-const Tiles = ( data : Array<UserType>) => {
-  const dataA: Array<UserType> = Object.values(data);
-  
-  return (
-    <>
-      <TilesDiv className="tiles">
-        {dataA.map((dataO) => {
-          return <Tile {...dataO}/>;
-        })}
+      <TilesDiv>
+        {dataA.map((item, key) => (
+          <div key={key} className={`div${item.id}`}>
+            <Tile {...item} />
+          </div>
+        ))}
       </TilesDiv>
     </>
   );
 };
 
-const Tile = ( data : UserType) => {
-  let tileStyle = {};
-  let headerStyle = {};
-  let zoom = {};
-  // When tile clicked
-
-  tileStyle = {
-    width: "18vw",
-    height: "18vw",
-  };
-
+const Tile = (data: UserType) => {
   return (
     <>
-      <TileDiv className="tile">
-        <img src={data.image} alt={data.name} style={tileStyle} />
-      </TileDiv>
+      <div className="tile">
+        <TilesImg src={data.image} alt={data.name} />
+      </div>
     </>
   );
 };
 
-
 export default Post;
 
-const FileInput = styled.input`
-  margin-top: 24px;
+const TilesImg = styled.img`
+  width: 25%;
+  float: left;
 `;
-
-const LetterDiv = styled.div`
-  font-size: 50px;
-`;
-
 const TilesDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-`;
-const TileDiv = styled.div`
-  margin: 15px;
-  cursor: pointer;
-  overflow: hidden;
-  width: 18vw;
-  height: 18vw;
+  margin-top: 20%;
 `;
