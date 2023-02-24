@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/retrospectPost/static/js/main.6a747796.chunk.js",
+    "main.js.map": "/retrospectPost/static/js/main.6a747796.chunk.js.map",
+    "runtime-main.js": "/retrospectPost/static/js/runtime-main.29d7fd84.js",
+    "runtime-main.js.map": "/retrospectPost/static/js/runtime-main.29d7fd84.js.map",
+    "static/js/2.02df5cab.chunk.js": "/retrospectPost/static/js/2.02df5cab.chunk.js",
+    "static/js/2.02df5cab.chunk.js.map": "/retrospectPost/static/js/2.02df5cab.chunk.js.map",
+    "index.html": "/retrospectPost/index.html",
+    "static/js/2.02df5cab.chunk.js.LICENSE.txt": "/retrospectPost/static/js/2.02df5cab.chunk.js.LICENSE.txt",
+    "static/media/AnswerBack.1cb44df9.svg": "/retrospectPost/static/media/AnswerBack.1cb44df9.svg",
+    "static/media/Background.429d4e5f.svg": "/retrospectPost/static/media/Background.429d4e5f.svg",
+    "static/media/Github.426ae318.svg": "/retrospectPost/static/media/Github.426ae318.svg",
+    "static/media/Google.53546abe.svg": "/retrospectPost/static/media/Google.53546abe.svg",
+    "static/media/Letter.ea260cf9.svg": "/retrospectPost/static/media/Letter.ea260cf9.svg",
+    "static/media/Post.f6f1fc94.svg": "/retrospectPost/static/media/Post.f6f1fc94.svg",
+    "static/media/PostByStart.6d98dbfb.svg": "/retrospectPost/static/media/PostByStart.6d98dbfb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29d7fd84.js",
+    "static/js/2.02df5cab.chunk.js",
+    "static/js/main.6a747796.chunk.js"
+  ]
+}
