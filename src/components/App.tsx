@@ -11,6 +11,7 @@ import Auth from "../routes/Auth";
 import Signup from "../routes/Signup";
 import Start from "../routes/Start";
 import Question from "../routes/Question";
+import Post from "src/routes/Post";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [init, setInit] = useState(false);
@@ -41,6 +42,7 @@ function App() {
             <Route path="/writesuccess" element={<WriteSuccess />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/question/:id" element={<Question />}></Route>
+            <Route path="/post" element={<Post />}></Route>
             ) : (
             <Route path="/" element={<Start />} />
             <Route path="/login" element={<Auth />} />
