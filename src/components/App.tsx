@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { authService } from "../fbase";
 import { GlobalStyle, MediaDiv } from "../styles/layout";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../routes/Home";
 import Profile from "../routes/Profile";
 import Write from "../routes/Write";
