@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AppRouter from "./Router";
 import { authService } from "../fbase";
 import { GlobalStyle, MediaDiv } from "../styles/layout";
 import {
@@ -16,6 +15,7 @@ import Navigation from "./Navigation";
 import Auth from "../routes/Auth";
 import Signup from "../routes/Signup";
 import Start from "../routes/Start";
+import Post from "../routes/Post";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [init, setInit] = useState(false);
@@ -42,9 +42,12 @@ function App() {
             {/* {isLoggedIn && <Navigation />} */}
             isLoggedIn ? (
             <Route path="/home" element={<Home userObj={userObj} />} />
+            <Route path="/post" element={<Post userObj={userObj} />} />
             <Route path="/write" element={<Write userObj={userObj} />} />
             <Route path="/writesuccess" element={<WriteSuccess />} />
-            <Route path="/profile" element={<Profile />} />) : (
+            <Route path="/profile" element={<Profile />} />) 
+            : 
+            (
             <Route path="/" element={<Start />} />
             <Route path="/login" element={<Auth />} />
             <Route path="/signup" element={<Signup />} />)
