@@ -11,7 +11,7 @@ type UserType = {
 
 //const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ,22 , 23, 24, 25, 26, 27, 28];
 const Post = ({ userObj }: any) => {
-  const dataA: Array<UserType> = [
+  const images: Array<UserType> = [
     {
       id: 1,
       name: "Island",
@@ -181,36 +181,36 @@ const Post = ({ userObj }: any) => {
         "https://images.unsplash.com/photo-1468245856972-a0333f3f8293?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=1f57cc13084e32839627453821a43abf",
     },
   ];
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const onClickOpenModal = () => {
+    setModalOpen(true);
+  };
+  const onClickCloseModal = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   return (
     <>
-      <TilesDiv>
-        {dataA.map((item, key) => (
-          <div key={key} className={`div${item.id}`}>
-            <Tile {...item} />
+      <ImagesDiv>
+        {images.map((item, key) => (
+          <div key={key}>
+            <Image src={item.image} alt={item.name} />
           </div>
         ))}
-      </TilesDiv>
+      </ImagesDiv>
+
+      <button onClick={onClickOpenModal}>모달창 테스트</button>
+      
     </>
   );
 };
-
-const Tile = (data: UserType) => {
-  return (
-    <>
-      <div className="tile">
-        <TilesImg src={data.image} alt={data.name} />
-      </div>
-    </>
-  );
-};
-
 export default Post;
 
-const TilesImg = styled.img`
+const Image = styled.img`
   width: 25%;
   float: left;
 `;
-const TilesDiv = styled.div`
+const ImagesDiv = styled.div`
   margin-top: 20%;
 `;
