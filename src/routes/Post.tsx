@@ -219,21 +219,7 @@ const Post = ({ userObj }: any) => {
 
       <button onClick={onClickOpenModal}>모달창 테스트</button>
         {isModalOpen && (
-          <Modal closeModal={onClickCloseModal}>
-            <h1>도착한 회고</h1>
-            <CardLayout>
-              {" "}
-              {nweets.map((nweet: any) => (
-                <MessageCard>
-                  <Nweet
-                    key={nweet.id}
-                    nweetObj={nweet}
-                    isOwner={nweet.creatorId === userObj.uid}
-                  />
-                </MessageCard>
-              ))}{" "}
-            </CardLayout>
-          </Modal>
+          <Modal closeModal={onClickCloseModal}/>
         )}{" "}
     </>
   );
@@ -246,35 +232,4 @@ const Image = styled.img`
 `;
 const ImagesDiv = styled.div`
   margin-top: 20%;
-`;
-
-
-const CardLayout = styled.div`
-  position: relative;
-  overflow: scroll;
-  align-items: center;
-
-  width: 272px;
-  height: fit-content;
-  padding-top: 10px;
-  padding-bottom: 35px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
-`;
-
-const MessageCard = styled.div`
-  position: relative;
-
-  height: fit-content;
-  padding: 10px;
-
-  width: 217px;
-
-  box-sizing: border-box;
-
-  border: 2px dashed #a4d6cb;
-  border-radius: 3px;
-  box-shadow: 0 0 0 8px white, 0 0 0 10px #a4d6cb;
 `;
