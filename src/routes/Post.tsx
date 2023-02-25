@@ -211,9 +211,9 @@ const Post = ({ userObj }: any) => {
     <>
       <ImagesDiv>
         {images.map((item, key) => (
-          <div key={key}>
-            <Image src={item.image} alt={item.name} />
-          </div>
+            <Btn onClick={onClickOpenModal}>
+              <Image src={item.image} alt={item.name} />
+            </Btn>
         ))}
       </ImagesDiv>
 
@@ -227,9 +227,18 @@ const Post = ({ userObj }: any) => {
 export default Post;
 
 const Image = styled.img`
-  width: 25%;
+  width: 100%;
   float: left;
 `;
 const ImagesDiv = styled.div`
   margin-top: 20%;
 `;
+const Btn = styled.button `
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  padding: 0px 0px;
+  width: 25%;
+`
