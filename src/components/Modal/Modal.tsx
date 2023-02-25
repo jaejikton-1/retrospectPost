@@ -24,7 +24,7 @@ const TimeTitle = () => {
 };
 
 const Modal = ({ closeModal, children }: any) => {
-  const outside = useRef();
+  const outside: any = useRef();
   const divRef = React.useRef<HTMLDivElement | null>(null)
   return (
     <Background
