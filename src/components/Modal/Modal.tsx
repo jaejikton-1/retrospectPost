@@ -25,9 +25,10 @@ const TimeTitle = () => {
 
 const Modal = ({ closeModal, children }: any) => {
   const outside: any = useRef();
+  const divRef = React.useRef<HTMLDivElement | null>(null)
   return (
     <Background
-      ref={outside}
+      ref={divRef}
       onClick={ (e) => { if(e.target == outside.current) closeModal(false) } }
     >
     <ModalWrapper>
