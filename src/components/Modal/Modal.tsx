@@ -27,12 +27,8 @@ const Modal = ({ closeModal, children }: any) => {
   const outside = useRef();
   return (
     <Background
-      //   ref={outside}
-      onClick={(e) => {
-        if (e.target == outside.current) {
-          closeModal(false); // todo: not work
-        }
-      }}
+      ref={outside}
+      onClick={ (e) => { if(e.target == outside.current) closeModal(false) } }
     >
     <ModalWrapper>
       <ModalImg src={answerImg}></ModalImg>
