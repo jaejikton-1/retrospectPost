@@ -3,35 +3,19 @@ import answerImg from "../assets/AnswerBack.svg";
 
 import { dbService } from "../fbase";
 import { useParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const AnswerSentence = () => {
-
-  useEffect(() => {
-    sampleDB();
-
-  }, []);
-
-  const {id} = useParams(); // url index
-
-
-  const sampleDB = async () => {
-    //const tableId = `${id}_${windowCount}`;
-    await dbService.collection("question").add({
-        questionIdx:id,
-        questionText: "nweet",
-        timestamp: new Date(),
-        //creatorId: uid,
-        //attachmentUrl,
-        //hotelOwnerId: id,
-        //ip : ip,
-    });
-  };
+const AnswerSentence = ({ setAnswerData }: any) => {
+  const [answer, setAnswer] = useState({});
+  setAnswerData(answer);
 
   return (
     <AnswerSentenceWrapper>
       <AnswerImg src={answerImg}></AnswerImg>
-      <SentenceInput placeholder="답변을 입력해주세요"></SentenceInput>
+      <SentenceInput
+        onChange={(e: any) => setAnswer({ ...answer, data: e.target.value })}
+        placeholder="답변을 입력해주세요"
+      ></SentenceInput>
     </AnswerSentenceWrapper>
   );
 };

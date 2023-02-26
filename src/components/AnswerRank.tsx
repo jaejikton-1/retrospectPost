@@ -1,24 +1,38 @@
 import styled from "styled-components";
-import rank1 from "../assets/Rank1.svg";
-import rank2 from "../assets/Rank2.svg";
-import rank3 from "../assets/Rank3.svg";
+import rankImg1 from "../assets/Rank1.svg";
+import rankImg2 from "../assets/Rank2.svg";
+import rankImg3 from "../assets/Rank3.svg";
+import { useEffect, useState } from "react";
 
-const AnswerRank = () => {
+const AnswerRank = ({ setAnswerData }: any) => {
+  const [rank, setAnswer] = useState({});
+  setAnswerData(rank);
+
   return (
     <AnswerRankWrapper>
       <RankWrapper className="rank2">
-        <RankInput placeholder="답변입력2위"></RankInput>
-        <RankImg src={rank2}></RankImg>
+        <RankInput
+          onChange={(e) => setAnswer({ ...rank, rank2: e.target.value })}
+          name="rank2"
+          placeholder="답변입력2위"
+        ></RankInput>
+        <RankImg src={rankImg2}></RankImg>
       </RankWrapper>
 
       <RankWrapper>
-        <RankInput placeholder="답변입력1위"></RankInput>
-        <RankImg src={rank1}></RankImg>
+        <RankInput
+          onChange={(e) => setAnswer({ ...rank, rank1: e.target.value })}
+          placeholder="답변입력1위"
+        ></RankInput>
+        <RankImg src={rankImg1}></RankImg>
       </RankWrapper>
 
       <RankWrapper className="rank3">
-        <RankInput placeholder="답변입력3위"></RankInput>
-        <RankImg src={rank3} className="rank3"></RankImg>
+        <RankInput
+          onChange={(e) => setAnswer({ ...rank, rank3: e.target.value })}
+          placeholder="답변입력3위"
+        ></RankInput>
+        <RankImg src={rankImg3} className="rank3"></RankImg>
       </RankWrapper>
     </AnswerRankWrapper>
   );

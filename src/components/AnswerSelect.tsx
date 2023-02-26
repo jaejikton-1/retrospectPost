@@ -3,18 +3,7 @@ import styled from "styled-components";
 const AnswerSelect = () => {
   return (
     <AnswerSelectWrapper>
-      <Chips color="red">#선택됨</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨2233333</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨222</Chips>
-      <Chips>#선택됨22</Chips>
-      <Chips>#선택됨22</Chips>
+      <Chips color="red">{/* <ChipInput></ChipInput> */}</Chips>
     </AnswerSelectWrapper>
   );
 };

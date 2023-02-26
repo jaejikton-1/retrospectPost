@@ -6,30 +6,71 @@ import AnswerSelect from "src/components/AnswerSelect";
 import AnswerRank from "src/components/AnswerRank";
 import AnswerSentence from "src/components/AnswerSentence";
 import { useState, useEffect } from "react";
-import { questionList } from "src/components/test";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import AnswerScore from "src/components/AnswerScore";
+import { dbService } from "src/fbase";
 
 export type IProps = {
+  questionIdx: number;
   question: string;
   answer_type: string;
 };
 
-const Question = () => {
+const Question = ({ userObj }: any) => {
   const { id }: any = useParams();
   const [curQuiz, setQuiz] = useState<IProps>();
-  const [idx, setIdx] = useState(0);
+  const [questionList, getQuiz]: any = useState();
+  const [answer, setAnswer]: any = useState([]);
+  const [idx, setIdx] = useState(1);
+  const history = useNavigate();
+
   useEffect(() => {
+    dbService.collection("questionList").onSnapshot((snapshot) => {
+      const questionList1: any = snapshot.docs.map((document) => ({
+        question: document.data().question,
+        answer_type: document.data().answer_type,
+        questionIdx: document.data().questionIdx,
+      }));
+      getQuiz(questionList1);
+    });
+
     const num = parseInt(id);
     if (questionList) {
       setQuiz(questionList[num - 1]); //렌더링 시 질문 설정 (현재 주소 파라미터에서 질문 번호 가져온다.
       setIdx(num + 1);
     }
-  });
 
-  const setNext = (idx: number) => {
+    if (num === questionList?.length) {
+      console.log("문제 끝남, 결과 페이지로");
+      history("/result");
+      return;
+    }
+  }, id);
+
+  const setNext = () => {
     setIdx(idx + 1);
+    history("/question/" + idx);
+    if (answer || answer.length > 0) {
+      sampleDB();
+    }
+  };
+
+  const sampleDB = async () => {
+    console.log({
+      questionIdx: curQuiz?.questionIdx,
+      answer: JSON.stringify(answer),
+      userIdx: userObj.uid,
+    });
+    await dbService.collection("answer").add({
+      questionIdx: curQuiz?.questionIdx,
+      answer: JSON.stringify(answer),
+      userIdx: userObj.uid,
+    });
+  };
+  const setAnswerData = (data: any) => {
+    console.log(data);
+    setAnswer(data);
   };
 
   return (
@@ -39,18 +80,18 @@ const Question = () => {
           <LetterImg src={letter}></LetterImg>
           <QuestionTitle>{curQuiz?.question}</QuestionTitle>
           {curQuiz?.answer_type === "rank" ? (
-            <AnswerRank></AnswerRank>
+            <AnswerRank setAnswerData={setAnswerData}></AnswerRank>
           ) : curQuiz?.answer_type === "sentence" ? (
-            <AnswerSentence></AnswerSentence>
+            <AnswerSentence setAnswerData={setAnswerData}></AnswerSentence>
           ) : curQuiz?.answer_type === "word" ? (
             <AnswerSelect></AnswerSelect>
           ) : (
             <AnswerScore></AnswerScore>
           )}
         </div>
-        <Link to={`/question/${idx}`}>
-          <Button label={"다음"} onClick={() => setNext(idx)}></Button>
-        </Link>
+        {/* <Link to={`/question/${idx}`}> */}
+        <Button label={"다음"} setNext={setNext}></Button>
+        {/* </Link> */}
       </BackgroundImg>
     </>
   );
