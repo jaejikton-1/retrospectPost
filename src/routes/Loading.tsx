@@ -16,7 +16,7 @@ const Loading = () => {
     <Wrapper>
       <Text>
         고영희 집배원이 <br />
-        <b>편재</b>를 배달중입니다 💌
+        <b>편지</b>를 배달중입니다 💌
       </Text>
       <Img src={PostByStart} />
 
