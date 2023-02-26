@@ -18,7 +18,7 @@ const Start = () => {
         <HotelImg src={PostByStart} />
         <Text>
           고영희 집배원이 <br />
-          <b>3통</b>의 편지를 가져왔어요!
+          <b>2월</b>의 편지를 가져왔어요!
         </Text>
         <SubText>떠나기 전에 답장해볼까요?</SubText>
         <Auth />

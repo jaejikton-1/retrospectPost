@@ -72,7 +72,9 @@ const Question = ({ userObj }: any) => {
         <div>
           <LetterImg src={letter}></LetterImg>
           <QuestionSub>이번 달 나의</QuestionSub>
-          <QuestionTitle>{curQuiz?.question}</QuestionTitle>
+          <QuestionTitle>
+            {curQuiz?.question ? curQuiz?.question : "일상은 어땠나요?"}
+          </QuestionTitle>
           {curQuiz && curQuiz?.answer_type === "rank" ? (
             <AnswerRank setAnswerData={setAnswerData}></AnswerRank>
           ) : curQuiz?.answer_type === "sentence" ? (
