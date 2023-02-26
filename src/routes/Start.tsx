@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PostByStart from "../assets/PostByStart.svg";
+import PostByStart from "../assets/PostByStart.png";
 import { useNavigate } from "react-router-dom";
 import { Container, TitleDiv } from "./styles/style";
 import Auth from "./Auth";
@@ -40,8 +40,8 @@ const Text = styled.div`
 `;
 const HotelImg = styled.img`
   width: 180px;
-  height: 285px;
-  margin-top: 36px;
+  /* height: 285px; */
+  margin-top: 150px;
 `;
 
 const SubText = styled.div`

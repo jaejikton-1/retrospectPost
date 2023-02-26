@@ -1,18 +1,16 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Next from "../assets/Next.svg";
+import Prev from "../assets/Prev.svg";
+
 const Button = ({ label, setNext }: any) => {
   const onClick = () => {
     setNext();
   };
-  return <ButtonWrapper onClick={onClick}>{label}</ButtonWrapper>;
+  return (
+    <ButtonWrapper src={label === "다음" ? Next : Prev} onClick={onClick} />
+  );
 };
 
-const ButtonWrapper = styled.div`
-  border-radius: 40px;
-  background-color: #222;
-  padding: 12px;
-  color: #fff;
-  text-align: center;
-`;
+const ButtonWrapper = styled.img``;
 
 export default Button;

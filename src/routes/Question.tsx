@@ -55,6 +55,11 @@ const Question = ({ userObj }: any) => {
     // }
   };
 
+  const setPrev = () => {
+    setIdx(idx - 1);
+    history("/question/" + idx);
+  };
+
   const sampleDB = async () => {
     await dbService.collection("answer").add({
       questionIdx: curQuiz?.questionIdx,
@@ -86,7 +91,10 @@ const Question = ({ userObj }: any) => {
           )}
         </div>
         {/* <Link to={`/question/${idx}`}> */}
-        <Button label={"다음"} setNext={setNext}></Button>
+        <ButtonWrapper>
+          <Button label={"이전"} setNext={setPrev}></Button>
+          <Button label={"다음"} setNext={setNext}></Button>
+        </ButtonWrapper>
         {/* </Link> */}
       </BackgroundImg>
     </>
@@ -120,4 +128,9 @@ const QuestionSub = styled.div`
   font-size: 16px;
   color: #494545;
   margin-top: 13px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

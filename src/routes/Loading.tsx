@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PostByStart from "../assets/PostByStart.svg";
+import PostByStart from "../assets/PostByStart.png";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
