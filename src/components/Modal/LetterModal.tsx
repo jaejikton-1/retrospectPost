@@ -2,7 +2,7 @@ import React from "react";
 import { Background, ModalCloseButton } from "./styles";
 import { useRef } from "react";
 import styled from "styled-components";
-import answerImg from "../../assets/AnswerBack.svg";
+import answerImg from "../../assets/AnswerNext.svg";
 import CloseButton from "../../assets/CloseButton.svg";
 import { useNavigate } from "react-router";
 
@@ -18,7 +18,7 @@ const TimeTitle = () => {
 
   return (
     <div>
-      {todayTime().slice(0, 9)}
+    {todayTime().slice(0, 9)}
       <span>{todayTime().slice(9, 12)}</span>
       <span>{todayTime().slice(12, 19)}</span>
     </div>
