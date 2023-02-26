@@ -22,7 +22,7 @@ export const TitleDiv = styled.div`
 export const InputStyle = styled.input`
   width: 305px;
   height: 45px;
-  background-color: #fcf4e9;
+  background-color: #f5f5f5;
   color: #222;
 
   border-color: transparent;

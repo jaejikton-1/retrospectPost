@@ -57,11 +57,6 @@ const Question = ({ userObj }: any) => {
   };
 
   const sampleDB = async () => {
-    console.log({
-      questionIdx: curQuiz?.questionIdx,
-      answer: JSON.stringify(answer),
-      userIdx: userObj.uid,
-    });
     await dbService.collection("answer").add({
       questionIdx: curQuiz?.questionIdx,
       answer: JSON.stringify(answer),
@@ -69,7 +64,6 @@ const Question = ({ userObj }: any) => {
     });
   };
   const setAnswerData = (data: any) => {
-    console.log(data);
     setAnswer(data);
   };
 
@@ -106,9 +100,6 @@ const LetterImg = styled.img`
 const BackgroundImg = styled.div`
   width: 100%;
   height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(${back});
   display: flex;
   flex-direction: column;
   justify-content: space-around;
