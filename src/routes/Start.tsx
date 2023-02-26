@@ -15,9 +15,6 @@ const Start = () => {
   return (
     <>
       <Container>
-        {/* <TitleDiv>나의 회고록</TitleDiv>
-        <TitleDiv>HeyGo</TitleDiv>
-        <TitleDiv>고양이 우체통</TitleDiv> */}
         <HotelImg src={PostByStart} />
         <Text>
           고영희 집배원이 <br />

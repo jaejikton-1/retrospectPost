@@ -1,9 +1,22 @@
-import { Link } from "react-router-dom";
+import ChipImg from "../assets/Chip.svg";
 import styled from "styled-components";
-const AnswerSelect = () => {
+const AnswerSelect = ({ setAnswerData }: any) => {
   return (
     <AnswerSelectWrapper>
-      <Chips color="red">{/* <ChipInput></ChipInput> */}</Chips>
+      <ChipWrapper>
+        <Chips src={ChipImg} color="red"></Chips>
+        <ChipsInput placeholder="???"></ChipsInput>
+      </ChipWrapper>
+
+      <ChipWrapper>
+        <Chips src={ChipImg} color="red"></Chips>
+        <ChipsInput placeholder="???"></ChipsInput>
+      </ChipWrapper>
+
+      <ChipWrapper>
+        <Chips src={ChipImg} color="red"></Chips>
+        <ChipsInput placeholder="???"></ChipsInput>
+      </ChipWrapper>
     </AnswerSelectWrapper>
   );
 };
@@ -11,18 +24,37 @@ const AnswerSelect = () => {
 const AnswerSelectWrapper = styled.div`
   display: flex;
   margin-top: 70px;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 `;
 
-const Chips = styled.div`
-  border-radius: 40px;
-  padding: 8px 10px;
+const Chips = styled.img``;
+
+const ChipWrapper = styled.div`
+  position: relative;
+`;
+
+const ChipsInput = styled.input`
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: none;
+  border: none;
+  padding: 10px;
   text-align: center;
-  margin-right: 5px;
-  margin-top: 5px;
-  color: ${(props) => (props.color == "red" ? "#fff" : "#525252")};
-  background: ${(props) => (props.color == "red" ? "#f26363" : "#FFFFFF")}; ;
+
+  &:focus {
+    outline: none;
+  }
+  &:placeholder {
+    text-align: center;
+  }
 `;
 
 export default AnswerSelect;

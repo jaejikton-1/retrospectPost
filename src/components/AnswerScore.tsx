@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BlackHeart from "../assets/BlackHeart.svg";
 import PinkHeart from "../assets/PinkHeart.svg";
 
-const AnswerScore = () => {
+const AnswerScore = ({ setAnswerData }: any) => {
   let heartList: any = [
     {
       idx: 1,

@@ -13,6 +13,8 @@ import Start from "../routes/Start";
 import Question from "../routes/Question";
 import Post from "src/routes/Post";
 import DevTool from "src/routes/DevTool";
+import Loading from "src/routes/Loading";
+import Result from "src/routes/Result";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [init, setInit] = useState(false);
@@ -51,6 +53,8 @@ function App() {
               path="/devtool"
               element={<DevTool userObj={userObj} />}
             ></Route>
+            <Route path="/loading" element={<Loading />}></Route>
+            <Route path="/result" element={<Result />}></Route>
             ) : (
             <Route path="/" element={<Start />} />
             <Route path="/login" element={<Auth />} />

@@ -20,7 +20,7 @@ export type IProps = {
 const Question = ({ userObj }: any) => {
   const { id }: any = useParams();
   const [curQuiz, setQuiz] = useState<IProps>();
-  const [questionList, getQuiz]: any = useState();
+  const [questionList, setQuizz]: any = useState();
   const [answer, setAnswer]: any = useState([]);
   const [idx, setIdx] = useState(1);
   const history = useNavigate();
@@ -32,28 +32,27 @@ const Question = ({ userObj }: any) => {
         answer_type: document.data().answer_type,
         questionIdx: document.data().questionIdx,
       }));
-      getQuiz(questionList1);
+      setQuizz(questionList1);
     });
 
     const num = parseInt(id);
     if (questionList) {
       setQuiz(questionList[num - 1]); //렌더링 시 질문 설정 (현재 주소 파라미터에서 질문 번호 가져온다.
-      setIdx(num + 1);
+      setIdx(num);
     }
 
-    if (num === questionList?.length) {
-      console.log("문제 끝남, 결과 페이지로");
-      history("/result");
+    if (num - 1 === questionList?.length) {
+      history("/loading");
       return;
     }
-  }, id);
+  }, [id]);
 
   const setNext = () => {
     setIdx(idx + 1);
     history("/question/" + idx);
-    if (answer || answer.length > 0) {
-      sampleDB();
-    }
+    // if (answer || answer.length > 0) {
+    //   sampleDB();
+    // }
   };
 
   const sampleDB = async () => {
@@ -72,8 +71,9 @@ const Question = ({ userObj }: any) => {
       <BackgroundImg>
         <div>
           <LetterImg src={letter}></LetterImg>
+          <QuestionSub>이번 달 나의</QuestionSub>
           <QuestionTitle>{curQuiz?.question}</QuestionTitle>
-          {curQuiz?.answer_type === "rank" ? (
+          {curQuiz && curQuiz?.answer_type === "rank" ? (
             <AnswerRank setAnswerData={setAnswerData}></AnswerRank>
           ) : curQuiz?.answer_type === "sentence" ? (
             <AnswerSentence setAnswerData={setAnswerData}></AnswerSentence>
@@ -111,4 +111,11 @@ const QuestionTitle = styled.div`
   font-size: 30px;
   text-align: center;
   margin-top: 8px;
+  font-weight: bold;
+`;
+
+const QuestionSub = styled.div`
+  font-size: 16px;
+  color: #494545;
+  margin-top: 13px;
 `;
