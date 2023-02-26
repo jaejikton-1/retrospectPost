@@ -13,12 +13,18 @@ import TImg from "../assets/TImg.svg";
 import ShareIcon from "../assets/ShareIcon.svg";
 import HomeIcon from "../assets/Home.svg";
 import Share2Icon from "../assets/Action.svg";
+import { useNavigate } from "react-router";
 
 const Result = () => {
+  const history = useNavigate();
+  const onClick = () => {
+    history("home");
+  };
+
   return (
     <>
       <Header>
-        <img src={HomeIcon} />
+        <img src={HomeIcon} onClick={onClick} />
         <img src={Share2Icon} />
       </Header>
       <Wrapper>

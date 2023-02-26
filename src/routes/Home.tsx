@@ -10,8 +10,8 @@ import styled from "styled-components";
 
 import Post from "../assets/Post.svg";
 import OKButtonImg from "../assets/OKButton.svg";
-import LetterButton from "../assets/LetterButton.svg";
-import React from "react";
+import Logo from "../assets/Logo.png";
+import Profile from "../assets/Person.svg";
 
 const Home = ({ userObj }: any) => {
   const [nweet, setNweet] = useState("");
@@ -37,17 +37,18 @@ const Home = ({ userObj }: any) => {
   return (
     <>
       <Container>
-        <TitleDiv>회고</TitleDiv>
+        <LogoImg>
+          <img className="img" src={Logo} />
+          <Icon src={Profile} />
+        </LogoImg>
         <PostImg src={Post} />
         <Text>
           고영희 집배원이 <br />
           <b>3통</b>의 편지를 가져왔어요!
         </Text>
         <SubText>떠나기 전에 답장해볼까요?</SubText>
-        <OKButton src={OKButtonImg} onClick={onClickOpenModal}/>
-        {isModalOpen && (
-          <LetterModal closeModal={onClickCloseModal}/>
-        )}{" "}
+        <OKButton src={OKButtonImg} onClick={onClickOpenModal} />
+        {isModalOpen && <LetterModal closeModal={onClickCloseModal} />}{" "}
       </Container>
       {/* <div>
               {
@@ -70,10 +71,14 @@ const OKButton = styled.img`
   height: 58px;
   margin-top: 36px;
 `;
-const LetterImg = styled.img`
-  width: 76px;
-  height: 71px;
-  margin-top: 36px;
+const LogoImg = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 15px 20px;
+  justify-content: space-between;
+  .img {
+    width: 114px;
+  }
 `;
 
 const PostImg = styled.img`
@@ -81,7 +86,6 @@ const PostImg = styled.img`
   height: 285px;
   margin-top: 36px;
 `;
-
 
 const Text = styled.div`
   font-size: 20px;
@@ -97,4 +101,8 @@ const SubText = styled.div`
   font-size: 16px;
   color: #494545;
   margin-top: 20px;
+`;
+
+const Icon = styled.img`
+  width: 40px;
 `;
